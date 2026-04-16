@@ -2,7 +2,7 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
     xmlns:p="http://prato.org"
     targetNamespace="http://prato.org"
-    elementFormDefault="unqualified">
+    elementFormDefault="qualified">
 
     <element name="nome">
         <simpleType>
