@@ -8,9 +8,9 @@ password = getpass()
 
 data = {"username":user,"password":password}
 
-response = requests.post(api_url+"v2/autenticacao/token/", json=data)
-print(response.json())
+response = requests.post(api_url+"token/pair", json=data)
 token = response.json()["access"]
+print(response.json())
 
 headers = {
     "Authorization": f'Bearer {token}'
@@ -18,7 +18,7 @@ headers = {
 
 print(headers)
 
-response = requests.get(api_url+"v2/minhas-informacoes/meus-dados/", json=data, headers=headers)
+response = requests.get(api_url+"rh/eu/", headers=headers)
 
 print(response.text)
 print(response)
