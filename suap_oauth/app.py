@@ -26,7 +26,7 @@ oauth.register(
 @app.route('/')
 def index():
     if 'suap_token' in session:
-        meus_dados = oauth.suap.get('v2/minhas-informacoes/meus-dados')
+        meus_dados = oauth.suap.get('rh/meus-dados')
         return render_template('user.html', user_data=meus_dados.json())
     else:
         return render_template('index.html')
@@ -50,3 +50,6 @@ def auth():
     token = oauth.suap.authorize_access_token()
     session['suap_token'] = token
     return redirect(url_for('index'))
+
+if __name__ == "__main__":
+    app.run()
